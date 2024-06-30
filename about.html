@@ -10,6 +10,22 @@
       <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
+        <h1>My Website</h1>
+    <button id="fetchData">Fetch Data</button>
+    <div id="responseData"></div>
+
+    <script>
+        document.getElementById('fetchData').addEventListener('click', function() {
+            fetch('http://localhost:3000/api/data') // Adjust this URL to match your backend endpoint
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('responseData').innerText = JSON.stringify(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
         <h1>About</h1>
         <br>
         <h2>
